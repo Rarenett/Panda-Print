@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section id="main-content">
+    <section class="wrapper main-wrapper">
+
+        <!-- Page Title -->
+        <div class="col-xl-12">
+            <div class="page-title">
+                <div class="float-left"></div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <!-- Category Table Section -->
+        <div class="col-xl-12">
+            <section class="box shadow-sm rounded-3 border-0 bg-white  ">
+                  <div class="d-flex align-items-center no-print float-right" style="gap: 8px;">
+                        <a href="{% url 'admin_dashboard' %}" 
+                           class="btn btn-light border shadow-sm"
+                           data-bs-toggle="tooltip" data-bs-placement="bottom" title="Home">
+                            <i class="fa-solid fa-house text-primary" style="font-size: 14px;"></i>
+                        </a>
+
+                        <button onclick="window.print()" 
+                                class="btn btn-light border shadow-sm"
+                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Print Page">
+                            <i class="fa-solid fa-print text-dark" style="font-size: 14px;"></i>
+                        </button>
+
+                        <a href="?q={{ search_query }}&export=pdf" 
+                           class="btn btn-light border shadow-sm"
+                           data-bs-toggle="tooltip" data-bs-placement="bottom" title="Export as PDF">
+                            <i class="fa-solid fa-file-pdf text-danger" style="font-size: 14px;"></i>
+                        </a>
+
+                        <a href="?q={{ search_query }}&export=excel" 
+                           class="btn btn-light border shadow-sm"
+                           data-bs-toggle="tooltip" data-bs-placement="bottom" title="Export as Excel">
+                            <i class="fa-solid fa-file-excel text-success" style="font-size: 14px;"></i>
+                        </a>
+                    </div>
+
+
+                            <div class="clearfix"></div>
+                    <div class="text-center">
+                        <h4 class="fw-bold text-dark mb-0" style="letter-spacing: 1px ;">Panda Print</h4>
+                    </div>
+                <header class="panel_header border-bottom mb-3  align-items-center justify-content-between px-4  bg-light rounded-top">
+                     <!-- Center Logo/Name -->
+                    
+
+                    <div class=" align-items-left>
+                        <h2 class="title fw-semibold text-secondary mb-0" style="text-transform: capitalize; font-weight: bolder;">Category Table</h2>
+                    </div>
+
+                   
+
+                    <!-- Top Right Buttons -->
+                  
+                </header>
+
+                <div class="content-body p-4 bg-white border border-light rounded-bottom">
+
+                    <!-- Search + Add Button -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-12 d-flex align-items-center" style="gap: 10px;">
+                            <form method="get" class="d-flex align-items-center" style="gap: 10px;">
+                                <div class="input-group" style="max-width: 350px;">
+                                    <input type="text" name="q" class="form-control border-end-0"
+                                        placeholder="Search Category..." value="{{ search_query }}">
+                                    <button type="submit" class="btn btn-primary" style="border-radius: 0 8px 8px 0;"
+                                            data-bs-toggle="tooltip" title="Search">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </div>
+
+                                <a href="{% url 'add_product_category' %}" 
+                                   class="btn shadow-sm d-flex align-items-center"
+                                   style="background-color: #17a2b8; color: white; padding: 0.5rem 1.25rem; border-radius: 8px; border: none; gap: 6px; font-weight: 500;"
+                                   data-bs-toggle="tooltip" title="Add New Category">
+                                    <i class="fa-solid fa-plus" style="font-size: 14px;"></i>
+                                    <span>Add New</span>
+                                </a>
+
+                                {% if search_query %}
+                                <a href="{% url 'category_listings' %}" 
+                                   class="btn btn-outline-secondary px-3 rounded"
+                                   data-bs-toggle="tooltip" title="Clear Search">
+                                    Clear
+                                </a>
+                                {% endif %}
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Table -->
+                    <div class="table-responsive mt-2">
+                        <table class="table table-striped table-bordered align-middle text-center">
+                            <thead class="table-light">
+                                <tr>
+                                    <th><strong>Sl. No</strong></th>
+                                    <th><strong>Category</strong></th>
+                                    <th><strong>Display Order</strong></th>
+                                    <th><strong>Actions</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in categories %}
+                                <tr>
+                                    <td>{{ forloop.counter0|add:categories.start_index }}</td>
+                                    <td><strong>{{ i.name }}</strong></td>
+                                    <td>{{ i.display_order }}</td>
+                                    <td>
+                                        <a href="{% url 'edit_category' i.id %}"
+                                           class="btn btn-outline-primary btn-sm me-1 rounded shadow-sm"
+                                           data-bs-toggle="tooltip" title="Edit Category">
+                                            <i class="fa-solid fa-pen"></i>
+                                        </a>
+                                        <a href="{% url 'delete_category' i.id %}"
+                                           class="btn btn-outline-danger btn-sm rounded shadow-sm"
+                                           data-bs-toggle="tooltip" title="Delete Category"
+                                           onclick="return confirm('Are you sure you want to delete this category?');">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="4" class="text-center text-muted">No categories found.</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination pagination-sm justify-content-center align-items-center">
+                            {% if categories.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page=1&q={{ search_query }}" data-bs-toggle="tooltip" title="First Page">
+                                    <i class="fa fa-angle-double-left"></i>
+                                </a>
+                            </li>
+                            {% endif %}
+
+                            <li class="page-item {% if not categories.has_previous %}disabled{% endif %}">
+                                <a class="page-link"
+                                   {% if categories.has_previous %}
+                                   href="?page={{ categories.previous_page_number }}&q={{ search_query }}"
+                                   {% endif %}
+                                   data-bs-toggle="tooltip" title="Previous Page">
+                                    <i class="fa fa-chevron-left"></i>
+                                </a>
+                            </li>
+
+                            <li class="page-item active">
+                                <span class="page-link">{{ categories.number }} / {{ categories.paginator.num_pages }}</span>
+                            </li>
+
+                            <li class="page-item {% if not categories.has_next %}disabled{% endif %}">
+                                <a class="page-link"
+                                   {% if categories.has_next %}
+                                   href="?page={{ categories.next_page_number }}&q={{ search_query }}"
+                                   {% endif %}
+                                   data-bs-toggle="tooltip" title="Next Page">
+                                    <i class="fa fa-chevron-right"></i>
+                                </a>
+                            </li>
+
+                            {% if categories.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ categories.paginator.num_pages }}&q={{ search_query }}"
+                                   data-bs-toggle="tooltip" title="Last Page">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+
+                </div>
+            </section>
+        </div>
+
+    </section>
+</section>
+
+<style>
+    .box {
+        border: 1px solid #e1e1e1;
+        background-color: #fff;
+    }
+    .panel_header {
+        background-color: #f9f9f9;
+        border-radius: 8px 8px 0 0;
+    }
+    .btn-light:hover {
+        background-color: #f0f0f0;
+        transform: translateY(-1px);
+        transition: all 0.2s ease;
+    }
+    .btn[style*="background-color: #17a2b8"]:hover {
+        background-color: #138496 !important;
+    }
+    .pagination .page-item.active .page-link {
+        background-color: #1fb5ac;
+        border-color: #1fb5ac;
+        color: white;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    });
+</script>
+
+{% include 'page_header.html' %}
+{% endblock %}

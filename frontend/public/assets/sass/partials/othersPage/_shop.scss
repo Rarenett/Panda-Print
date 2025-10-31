@@ -1,0 +1,121 @@
+.shop {
+  .container-lg {
+    position: relative;
+  }
+
+
+  
+
+  // Sidebar toggle (mobile)
+  .shop-sidebar-toggle {
+    display: none;
+    margin-bottom: 16px;
+    border: none;
+    background: #ff8533;
+    color: #fff;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-weight: 600;
+    font-size: 17px;
+    cursor: pointer;
+    i {
+      font-size: 20px;
+    //   margin-right: 8px;
+    }
+    @media (max-width: 991px) {
+      display: block;
+    }
+  }
+  // Backdrop for sidebar (mobile)
+  .shop-sidebar-backdrop {
+    display: none;
+    @media (max-width: 991px) {
+      display: block;
+      position: fixed;
+      left: 0; top: 0; right: 0; bottom: 0;
+      z-index: 9988;
+      background: rgba(36,36,36,0.17);
+      animation: fadeIn 0.3s;
+    }
+  }
+  // Sidebar responsive
+ @media (max-width: 991px) {
+  .shop-sidebar {
+    position: absolute; // <-- Changed from fixed to absolute
+    left: 0;
+    top: 5px; // <-- Adjust this to match your toggle button's height+margin
+    width: 270px;
+    max-height: calc(100vh - 52px);
+    z-index: 9999;
+    background: #fff;
+    box-shadow: 2px 0 24px rgba(0,0,0,0.05);
+    transform: translateX(-110%);
+    transition: 0.22s cubic-bezier(0.55,0,0.1,1);
+    .shop-sidebarbox { border-radius: 0; border: none; }
+    &.active { transform: translateX(0); }
+    .sidebar-header {
+      display: flex; justify-content: flex-end;
+      .sidebar-close {
+        font-size: 28px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #888;
+      }
+    }
+  }
+  // Make the containing element (where toggle/section lives) position:relative
+  .container.container-lg, .shop {
+    position: relative;
+  }
+}
+  // Product grid responsive
+ .product-types-list {
+  .row {
+    margin-left: -2px;
+    margin-right: -2px;
+  }
+  .col-6, .col-md-4 {
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-bottom: 18px;
+  }
+
+  .material-card {
+    // Tighter card on mobile
+    padding: 10px;
+    .material-img-box img {
+      width: 56px; height: 56px;
+      @media (max-width: 575px) {
+        width: 46px; height: 46px;
+      }
+    }
+    .material-name { font-size: 13px }
+    .btn { font-size: 12px; }
+  }
+}
+// Optionally hide .no-materials-message on mobile for more compact
+@media (max-width: 575px) {
+  .no-materials-message { font-size: 13px; }
+}
+  // Material and Card tweaks for mobile
+  @media (max-width: 767px) {
+    .product-type-card {
+      padding: 18px !important;
+      .product-type-title { font-size: 20px; }
+    }
+    .material-card {
+      .material-name { font-size: 13px }
+      .btn { font-size: 12px; }
+    }
+    .shop-sidebarbox { padding: 12px 2px !important; }
+  }
+  // Smaller devices
+  @media (max-width: 575px) {
+    .product-type-title { font-size: 16px }
+    .material-card { padding: 8px !important; }
+    .shop-sidebarbox { padding: 7px 0 !important; }
+  }
+}
+
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }

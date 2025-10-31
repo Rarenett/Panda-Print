@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section id="main-content">
+  <section class="wrapper main-wrapper">
+
+    <!-- Header Bar -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <form method="get" action="{% url 'admin_inbox' %}" class="d-flex" style="width: 50%;">
+        <input type="text" name="q" value="{{ q }}" class="form-control me-2" placeholder="Search by name or subject">
+        <button type="submit" class="btn btn-outline-primary">Search</button>
+      </form>
+
+      <a href="{% url 'admin_compose' %}" class="btn btn-success">
+         Compose
+      </a>
+    </div>
+
+    <!-- Inbox Container -->
+    <div class="row">
+      <!-- Email List -->
+      <div class="col-md-4 border-end" style="height: 80vh; overflow-y: auto;">
+        {% if page_obj %}
+          {% for email in page_obj %}
+          <a href="?selected={{ email.id }}" class="text-decoration-none">
+            <div class="card mb-2 {% if not email.is_read %}border-primary{% endif %}">
+              <div class="card-body py-2 px-3">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <strong>{{ email.sender.username }}</strong><br>
+                    <span class="text-muted small">{{ email.subject|truncatechars:40 }}</span>
+                  </div>
+                  <span class="text-muted small">{{ email.created_at|date:"M d, H:i" }}</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        {% else %}
+          <p class="text-muted text-center mt-4">No emails found.</p>
+        {% endif %}
+      </div>
+
+      <!-- Email Detail Section -->
+      <div class="col-md-8">
+        {% if selected_email %}
+          <div class="card" style="height: 80vh; overflow-y: auto;">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <div>
+                <strong>{{ selected_email.subject }}</strong>
+                <div class="text-muted small">From: {{ selected_email.sender.username }}</div>
+              </div>
+              <a href="{% url 'admin_email_detail' selected_email.id %}" class="btn btn-sm btn-outline-secondary">Open</a>
+            </div>
+            <div class="card-body">
+              <p style="white-space: pre-wrap;">{{ selected_email.message }}</p>
+              {% if selected_email.attachment %}
+              <hr>
+              <p>
+                Attachment:
+                <a href="{{ selected_email.attachment.url }}" target="_blank">
+                  {{ selected_email.attachment.name|cut:"email_attachments/" }}
+                </a>
+              </p>
+              {% endif %}
+            </div>
+          </div>
+        {% else %}
+          <div class="text-center text-muted mt-5">
+            <p>Select an email to read it here.</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    {% if page_obj.has_other_pages %}
+    <nav class="mt-3">
+      <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if q %}&q={{ q }}{% endif %}">&laquo;</a>
+        </li>
+        {% endif %}
+
+        {% for i in page_obj.paginator.page_range %}
+          {% if page_obj.number == i %}
+            <li class="page-item active"><span class="page-link">{{ i }}</span></li>
+          {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{ i }}{% if q %}&q={{ q }}{% endif %}">{{ i }}</a></li>
+          {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if q %}&q={{ q }}{% endif %}">&raquo;</a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% endif %}
+
+  </section>
+</section>
+
+{% endblock %}

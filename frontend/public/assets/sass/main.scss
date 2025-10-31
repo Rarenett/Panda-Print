@@ -1,0 +1,30 @@
+// abstract
+@import "abstracts/index";
+// Component
+@import "components/index";
+// utilities
+@import "utilities/index";
+// Module
+@import "layout/index";
+// All partials
+@import "partials/index";
+
+@import "extra";
+//custom header design
+@import "partials/home/header-custom";
+//import login and signup designs
+@import "partials/home/account";
+
+
+@import "partials/home/Profile";        
+
+@import "partials/home/productdetailsone";  
+@import "partials/home/banner";  
+@import "partials/home/megamenu";  
+@import "partials/home/most-popular";  
+@import "partials/home/hot-deals";  
+@import "partials/home/best-sell";  
+@import "partials/home/shippingtwo";  
+@import "partials/home/wishlist";  
+
+

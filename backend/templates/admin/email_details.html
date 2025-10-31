@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <div class="d-flex justify-content-between">
+    <h4>{{ email.subject }}</h4>
+    <a href="{% url 'admin_inbox' %}" class="btn btn-outline-secondary">Back</a>
+  </div>
+  <div class="text-muted mb-2">
+    From: {{ email.sender.username }} <br>
+    To: {{ email.recipient.username }} <br>
+    Sent: {{ email.created_at|date:"M d, Y H:i" }}
+  </div>
+  <hr>
+  <p style="white-space: pre-wrap;">{{ email.message }}</p>
+  {% if email.attachment %}
+  <hr>
+  <p>Attachment: <a href="{{ email.attachment.url }}" target="_blank">{{ email.attachment.name }}</a></p>
+  {% endif %}
+</div>
+{% endblock %}

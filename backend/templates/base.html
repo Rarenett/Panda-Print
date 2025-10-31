@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+{% load static %}
+<html class=" ">
+
+<head>
+    <!-- 
+         * @Package: Ultra Admin - Responsive Theme
+         * @Subpackage: Bootstrap
+         * @Version: B4-1.3
+         * This file is part of Ultra Admin Theme.
+        -->
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>Panda Print </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <link rel="shortcut icon" href="{% static 'backend/assets/images/favicon.png' %}" type="image/x-icon" /> <!-- Favicon -->
+    <link rel="apple-touch-icon-precomposed" href="{% static 'backend/assets/images/apple-touch-icon-57-precomposed.png' %}">
+    <!-- For iPhone -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+        href="{% static 'backend/assets/images/apple-touch-icon-114-precomposed.png' %}"> <!-- For iPhone 4 Retina display -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+        href="{% static 'backend/assets/images/apple-touch-icon-72-precomposed.png' %}"> <!-- For iPad -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+        href="{% static 'backend/assets/images/apple-touch-icon-144-precomposed.png' %}"> <!-- For iPad Retina display -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+    <!-- CORE CSS FRAMEWORK - START -->
+    <link href="{% static 'backend/assets/plugins/pace/pace-theme-flash.css' %}" rel="stylesheet" type="text/css"
+        media="screen" />
+    <link href="{% static 'backend/assets/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'backend/assets/fonts/font-awesome/css/font-awesome.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'backend/assets/css/animate.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'backend/assets/plugins/perfect-scrollbar/perfect-scrollbar.css' %}" rel="stylesheet"
+        type="text/css" />
+    <!-- CORE CSS FRAMEWORK - END -->
+
+    <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
+    <link href="{% static 'backend/assets/plugins/morris-chart/css/morris.css' %}" rel="stylesheet" type="text/css"
+        media="screen" />
+    <link href="{% static 'backend/assets/plugins/jquery-ui/smoothness/jquery-ui.min.css' %}" rel="stylesheet" type="text/css"
+        media="screen" />
+    <link href="{% static 'backend/assets/plugins/rickshaw-chart/css/graph.css' %}" rel="stylesheet" type="text/css"
+        media="screen" />
+    <link href="{% static 'backend/assets/plugins/rickshaw-chart/css/detail.css' %}" rel="stylesheet" type="text/css"
+        media="screen" />
+    <link href="{% static 'backend/assets/plugins/rickshaw-chart/css/legend.css' %}" rel="stylesheet" type="text/css"
+        media="screen" />
+    <link href="{% static 'backend/assets/plugins/rickshaw-chart/css/extensions.css' %}" rel="stylesheet" type="text/css"
+        media="screen" />
+    <link href="{% static 'backend/assets/plugins/rickshaw-chart/css/rickshaw.min.css' %}" rel="stylesheet" type="text/css"
+        media="screen" />
+    <link href="{% static 'backend/assets/plugins/rickshaw-chart/css/lines.css' %}" rel="stylesheet" type="text/css"
+        media="screen" />
+    <link href="{% static 'backend/assets/plugins/jvectormap/jquery-jvectormap-2.0.1.css' %}" rel="stylesheet" type="text/css"
+        media="screen" />
+    <link href="{% static 'backend/assets/plugins/icheck/skins/minimal/white.css' %}" rel="stylesheet" type="text/css"
+        media="screen" /> <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
+
+
+    <!-- CORE CSS TEMPLATE - START -->
+    <link href="{% static 'backend/assets/css/style.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'backend/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <!-- CORE CSS TEMPLATE - END -->
+
+</head>
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+
+<body class=" "><!-- START TOPBAR -->
+    <div class='page-topbar '>
+        <div class='logo-area'>
+
+        </div>
+        <div class='quick-area'>
+            <div class='float-left'>
+                <ul class="info-menu left-links list-inline list-unstyled">
+                    <li class="sidebar-toggle-wrap list-inline-item">
+                        <a href="#" data-toggle="sidebar" class="sidebar_toggle">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>
+                    <li class="message-toggle-wrapper list-inline-item">
+                        <a href="#" data-toggle="dropdown" class="toggle">
+                            <i class="fa fa-envelope"></i>
+                            <span class="badge badge-pill badge-primary">7</span>
+                        </a>
+                        <ul class="dropdown-menu messages animated fadeIn">
+
+                            <li class="list dropdown-item">
+
+                                <ul class="dropdown-menu-list list-unstyled ps-scrollbar">
+                                    <li class="unread status-available">
+                                        <a href="javascript:;">
+                                            <div class="user-img">
+                                                <img src="data/profile/avatar-1.png' %}" alt="user-image"
+                                                    class="rounded-circle img-inline">
+                                            </div>
+                                            <div>
+                                                <span class="name">
+                                                    <strong>Clarine Vassar</strong>
+                                                    <span class="time small">- 15 mins ago</span>
+                                                    <span class="profile-status available float-right"></span>
+                                                </span>
+                                                <span class="desc small">
+                                                    Sometimes it takes a lifetime to win a battle.
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class=" status-away">
+                                        <a href="javascript:;">
+                                            <div class="user-img">
+                                                <img src="data/profile/avatar-2.png' %}" alt="user-image"
+                                                    class="rounded-circle img-inline">
+                                            </div>
+                                            <div>
+                                                <span class="name">
+                                                    <strong>Brooks Latshaw</strong>
+                                                    <span class="time small">- 45 mins ago</span>
+                                                    <span class="profile-status away float-right"></span>
+                                                </span>
+                                                <span class="desc small">
+                                                    Sometimes it takes a lifetime to win a battle.
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class=" status-busy">
+                                        <a href="javascript:;">
+                                            <div class="user-img">
+                                                <img src="data/profile/avatar-3.png' %}" alt="user-image"
+                                                    class="rounded-circle img-inline">
+                                            </div>
+                                            <div>
+                                                <span class="name">
+                                                    <strong>Clementina Brodeur</strong>
+                                                    <span class="time small">- 1 hour ago</span>
+                                                    <span class="profile-status busy float-right"></span>
+                                                </span>
+                                                <span class="desc small">
+                                                    Sometimes it takes a lifetime to win a battle.
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class=" status-offline">
+                                        <a href="javascript:;">
+                                            <div class="user-img">
+                                                <img src="data/profile/avatar-4.png' %}" alt="user-image"
+                                                    class="rounded-circle img-inline">
+                                            </div>
+                                            <div>
+                                                <span class="name">
+                                                    <strong>Carri Busey</strong>
+                                                    <span class="time small">- 5 hours ago</span>
+                                                    <span class="profile-status offline float-right"></span>
+                                                </span>
+                                                <span class="desc small">
+                                                    Sometimes it takes a lifetime to win a battle.
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class=" status-offline">
+                                        <a href="javascript:;">
+                                            <div class="user-img">
+                                                <img src="data/profile/avatar-5.png' %}" alt="user-image"
+                                                    class="rounded-circle img-inline">
+                                            </div>
+                                            <div>
+                                                <span class="name">
+                                                    <strong>Melissa Dock</strong>
+                                                    <span class="time small">- Yesterday</span>
+                                                    <span class="profile-status offline float-right"></span>
+                                                </span>
+                                                <span class="desc small">
+                                                    Sometimes it takes a lifetime to win a battle.
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class=" status-available">
+                                        <a href="javascript:;">
+                                            <div class="user-img">
+                                                <img src="data/profile/avatar-1.png' %}" alt="user-image"
+                                                    class="rounded-circle img-inline">
+                                            </div>
+                                            <div>
+                                                <span class="name">
+                                                    <strong>Verdell Rea</strong>
+                                                    <span class="time small">- 14th Mar</span>
+                                                    <span class="profile-status available float-right"></span>
+                                                </span>
+                                                <span class="desc small">
+                                                    Sometimes it takes a lifetime to win a battle.
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class=" status-busy">
+                                        <a href="javascript:;">
+                                            <div class="user-img">
+                                                <img src="data/profile/avatar-2.png' %}" alt="user-image"
+                                                    class="rounded-circle img-inline">
+                                            </div>
+                                            <div>
+                                                <span class="name">
+                                                    <strong>Linette Lheureux</strong>
+                                                    <span class="time small">- 16th Mar</span>
+                                                    <span class="profile-status busy float-right"></span>
+                                                </span>
+                                                <span class="desc small">
+                                                    Sometimes it takes a lifetime to win a battle.
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class=" status-away">
+                                        <a href="javascript:;">
+                                            <div class="user-img">
+                                                <img src="data/profile/avatar-3.png' %}" alt="user-image"
+                                                    class="rounded-circle img-inline">
+                                            </div>
+                                            <div>
+                                                <span class="name">
+                                                    <strong>Araceli Boatright</strong>
+                                                    <span class="time small">- 16th Mar</span>
+                                                    <span class="profile-status away float-right"></span>
+                                                </span>
+                                                <span class="desc small">
+                                                    Sometimes it takes a lifetime to win a battle.
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+                            </li>
+
+                            <li class="external">
+                                <a href="javascript:;">
+                                    <span>Read All Messages</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </li> 
+                    <li class="notify-toggle-wrapper list-inline-item">
+                        <a href="#" data-toggle="dropdown" class="toggle">
+                            <i class="fa fa-bell"></i>
+                            <span class="badge badge-pill badge-orange">3</span>
+                        </a> 
+                        <ul class="dropdown-menu notifications animated fadeIn">
+                            <li class="total dropdown-item">
+                                 <span class="small">
+                                    You have <strong></strong> new notifications.
+                                    <a href="javascript:;" class="float-right">Mark all as Read</a>
+                                </span> 
+                            </li>
+                            <li class="list dropdown-item">
+
+                                <ul class="dropdown-menu-list list-unstyled ps-scrollbar">
+                                    
+                                    
+                                    
+                                    
+                                    
+                                   
+
+                                </ul>
+
+                            </li>
+
+                            <li class="external dropdown-item">
+                                <a href="javascript:;">
+                                    <span>Read All Notifications</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="d-sm-none d-none searchform list-inline-item">
+                        <div class="input-group">
+                            <span class="input-group-addon input-focus">
+                                <i class="fa fa-search"></i>
+                            </span>
+                            <form action="search-page.html" method="post">
+                                <input type="text" class="form-control animated fadeIn" placeholder="Search & Enter">
+                                <input type='submit' value="">
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class='float-right'>
+                <ul class="info-menu right-links list-inline list-unstyled">
+                    <li class="profile list-inline-item">
+                            <a href="#" data-toggle="dropdown" class="toggle">
+                                {% if request.user.userprofile.profile_picture %}
+                                    <img src="{{ request.user.userprofile.profile_picture.url }}" 
+                                         alt="user-image" 
+                                         class="rounded-circle img-inline" 
+                                         style="width:35px; height:35px; object-fit:cover;">
+                                {% else %}
+                                    <img src="{% static 'data/profile/tes.jpg' %}" 
+                                         alt="default-user-image" 
+                                         class="rounded-circle img-inline" 
+                                         style="width:35px; height:35px; object-fit:cover;">
+                                {% endif %}
+                                <span>{{ request.user.name }} <i class="fa fa-angle-down"></i></span>
+                            </a>
+                        <ul class="dropdown-menu profile animated fadeIn">
+                            <li class="dropdown-item">
+                                <a href="#settings">
+                                    <i class="fa fa-wrench"></i>
+                                    Settings
+                                </a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="#profile">
+                                    <i class="fa fa-user"></i>
+                                    Profile
+                                </a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="#help">
+                                    <i class="fa fa-info"></i>
+                                    Help
+                                </a>
+                            </li>
+                            <li class="last dropdown-item">
+                                <a href="{% url 'admin_login' %}">
+                                    <i class="fa fa-lock"></i>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {% comment %} <li class="chat-toggle-wrapper list-inline-item">
+                        <a href="#" data-toggle="chatbar" class="toggle_chat">
+                            <i class="fa fa-comments"></i>
+                            <span class="badge badge-pill badge-warning">9</span>
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </li> {% endcomment %}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <!-- END TOPBAR -->
+    <!-- START CONTAINER -->
+    <div class="page-container row-fluid">
+
+        <!-- SIDEBAR - START -->
+        <div class="page-sidebar ">
+
+            <!-- MAIN MENU - START -->
+            <div class="page-sidebar-wrapper" id="main-menu-wrapper">
+
+                <!-- USER INFO - START -->
+                <div class="profile-info row">
+
+                    <div class="profile-image col-lg-4 col-md-4 col-4">
+                                {% if request.user.userprofile.profile_picture %}
+                                    <img src="{{ request.user.userprofile.profile_picture.url }}" 
+                                         class="img-fluid rounded-circle" 
+                                         alt="Profile Picture">
+                                {% else %}
+                                    <img src="{% static 'data/profile/tes.jpg' %}" 
+                                         class="img-fluid rounded-circle" 
+                                         alt="Default Profile">
+                                {% endif %}
+                    </div>
+
+                    <div class="profile-details col-lg-8 col-md-8 col-8">
+
+                        <h3>
+                            <a href="ui-profile.html">{{request.user.name}}</a>
+
+                            <!-- Available statuses: online, idle, busy, away and offline -->
+                            <span class="profile-status online"></span>
+                        </h3>
+
+                        <p class="profile-title">Administrator</p>
+
+                    </div>
+
+                </div>
+                <!-- USER INFO - END -->
+
+
+
+<ul class="wraplist">
+                        <!-- Dashboard always visible -->
+                        <li class="">
+                            <a href="{% url 'admin_dashboard' %}">
+                            <i class="fa fa-dashboard"></i>
+                            <span class="title">Dashboard</span>
+                            </a>
+                        </li>
+
+                        {% for item in menus %}
+                            <li class="">
+                            <a href="javascript:;">
+                                {% if item.menu.icon %}<i class="{{ item.menu.icon }}"></i>{% endif %}
+                                <span class="title">{{ item.menu.name }}</span>
+                                {% if item.submenus %}
+                                <span class="arrow"></span>
+                                {% endif %}
+                            </a>
+
+  {% if item.submenus %}
+    <ul class="sub-menu">
+        {% for sub in item.submenus.all %}
+            <li>
+                <a href="{% if sub.url %}{% url sub.url %}{% else %}#{% endif %}">
+                    {{ sub.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+</li>
+{% endfor %}
+                    </ul>
+
+
+            </div>
+            <!-- MAIN MENU - END -->
+
+
+
+            <div class="project-info">
+
+                {% comment %} <div class="block1">
+                    <div class="data">
+                        <span class='title'>New&nbsp;Users</span>
+                        <span class='total'>245</span>
+                    </div>
+                    <div class="graph">
+                        <span class="sidebar_orders">...</span>
+                    </div>
+                </div>
+
+                <div class="block2">
+                    <div class="data">
+                        <span class='title'>Subscribers</span>
+                        <span class='total'>990</span>
+                    </div>
+                    <div class="graph">
+                        <span class="sidebar_visitors">...</span>
+                    </div>
+                </div> {% endcomment %}
+
+            </div> 
+
+
+
+        </div>
+
+
+
+
+
+
+        {% block content %}
+        {% endblock %}
+
+
+        <!-- CORE JS FRAMEWORK - START -->
+        <script src="{% static 'backend/assets/js/jquery-3.4.1.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'backend/assets/js/popper.min.js' %}" type="text/javascript"></script>
+        <!-- <script src="{% static 'backend/assets/js/jquery.easing.min.js' %}" type="text/javascript"></script>  -->
+        <script src="{% static 'backend/assets/plugins/bootstrap/js/bootstrap.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'backend/assets/plugins/pace/pace.min.js' %}" type="text/javascript"></script>
+
+        <script src="{% static 'backend/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js' %}"
+            type="text/javascript"></script>
+        <script src="{% static 'backend/assets/plugins/viewport/viewportchecker.js' %}" type="text/javascript"></script>
+        <!-- CORE JS FRAMEWORK - END -->
+
+
+        <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
+        <script src="{% static 'backend/assets/plugins/calendar/moment.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'backend/assets/plugins/jquery-ui/smoothness/jquery-ui.min.js' %}"
+            type="text/javascript"></script>
+        <script src="{% static 'backend/assets/plugins/calendar/fullcalendar.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'backend/assets/plugins/icheck/icheck.min.js' %}" type="text/javascript"></script>
+        <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
+
+
+        <!-- CORE TEMPLATE JS - START -->
+        <script src="{% static 'backend/assets/js/scripts.js' %}" type="text/javascript"></script>
+        <!-- END CORE TEMPLATE JS - END -->
+
+        <!-- Sidebar Graph - START -->
+        <script src="{% static 'backend/assets/plugins/sparkline-chart/jquery.sparkline.min.js' %}"
+            type="text/javascript"></script>
+        <script src="{% static 'backend/assets/js/chart-sparkline.js' %}" type="text/javascript"></script>
+        <!-- Sidebar Graph - END -->
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+
+
+
+
+
+
+
+
+        <!-- General section box modal start -->
+        <div class="modal" id="section-settings" tabindex="-1" role="dialog" aria-labelledby="ultraModal-Label"
+            aria-hidden="true">
+            <div class="modal-dialog animated bounceInDown">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Section Settings</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        Body goes here...
+
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                        <button class="btn btn-success" type="button">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal end -->
+</body>
+
+</html>
+
+
+
+
+
+<script type="text/javascript">
+
+
+</script>

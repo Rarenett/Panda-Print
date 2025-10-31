@@ -1,0 +1,632 @@
+// ===========================================
+// ACCOUNT PAGE STYLES - RESPONSIVE APPROACH
+// ===========================================
+
+.account-wrapper {
+  position: relative;
+  min-height: calc(100vh - 170px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 30px 20px;
+
+  // Animated Background
+  .auth-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    animation: float 20s infinite ease-in-out;
+
+    &-1 {
+      width: 400px;
+      height: 400px;
+      top: -100px;
+      left: -100px;
+      animation-delay: 0s;
+    }
+
+    &-2 {
+      width: 300px;
+      height: 300px;
+      bottom: -80px;
+      right: -80px;
+      animation-delay: 2s;
+    }
+  }
+
+  .bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    animation: bubble 15s infinite ease-in-out;
+
+    &-1 {
+      width: 80px;
+      height: 80px;
+      top: 20%;
+      left: 20%;
+      animation-delay: 1s;
+    }
+
+    &-2 {
+      width: 120px;
+      height: 120px;
+      top: 60%;
+      right: 15%;
+      animation-delay: 3s;
+    }
+
+    &-3 {
+      width: 60px;
+      height: 60px;
+      bottom: 30%;
+      left: 10%;
+      animation-delay: 2s;
+    }
+  }
+
+  // Content Container
+  .account-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    
+    .container-sm {
+      max-width: 480px;
+      margin: 0 auto;
+      transition: max-width 0.3s ease;
+      
+      &.wider {
+        max-width: 700px;
+      }
+    }
+  }
+
+  // Toggle Buttons
+  .toggle-buttons-wrapper {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .user-icon-wrapper {
+    margin-bottom: 15px;
+    animation: fadeInDown 0.6s ease;
+  }
+
+  .user-icon {
+    color: #ffffff;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  }
+
+  .toggle-buttons {
+    display: inline-flex;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 6px;
+    gap: 8px;
+    animation: fadeInDown 0.6s ease 0.2s backwards;
+  }
+
+  .toggle-btn {
+    padding: 12px 40px;
+    background: transparent;
+    border: none;
+    border-radius: 50px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    span {
+      position: relative;
+      z-index: 1;
+    }
+
+    &.active {
+      background: #ffffff;
+      color: #667eea;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    &:hover:not(.active) {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  // Form Card
+  .form-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 48px 36px 38px 36px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.6s ease 0.3s backwards;
+  }
+
+  .form-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .form-section {
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    opacity: 0;
+    transform: translateX(50px);
+    position: absolute;
+    width: 100%;
+    pointer-events: none;
+
+    &.active {
+      opacity: 1;
+      transform: translateX(0);
+      position: relative;
+      pointer-events: all;
+    }
+  }
+
+  .form-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .form-subtitle {
+    font-size: 14px;
+    color: #718096;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  // Form Styles
+  .auth-form {
+    width: 100%;
+  }
+
+  // ============================================
+  // REGISTER FORM - DEFAULT VERTICAL LAYOUT
+  // ============================================
+  .register-form {
+    // Two-column grid for fields
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 0;
+    }
+
+    .form-title {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .form-subtitle {
+      margin-bottom: 25px;
+    }
+
+    // DEFAULT: Vertical layout (label on top)
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #4a5568;
+      margin-bottom: 6px;
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-icon {
+      left: 14px;
+    }
+
+    .form-input {
+      padding: 11px 14px 11px 42px;
+      font-size: 14px;
+    }
+
+    .form-options {
+      margin-bottom: 20px;
+      font-size: 13px;
+    }
+
+    .submit-btn {
+      padding: 13px;
+      font-size: 15px;
+      margin-top: 12px;
+    }
+
+    .google-login-container {
+      margin: 16px 0 0 0;
+    }
+
+    .switch-form-text {
+      margin-top: 18px;
+      text-align: center;
+    }
+  }
+
+  // Login form styles
+  .login-form {
+    .form-group {
+      margin-bottom: 24px;
+    }
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 8px;
+  }
+
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .input-icon {
+    position: absolute;
+    left: 16px;
+    color: #a0aec0;
+    pointer-events: none;
+    transition: color 0.3s ease;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 14px 16px 14px 48px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 15px;
+    color: #2d3748;
+    transition: all 0.3s ease;
+    background: #f7fafc;
+
+    &:focus {
+      outline: none;
+      border-color: #667eea;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+
+      ~ .input-icon {
+        color: #667eea;
+      }
+    }
+  }
+
+  .form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    font-size: 14px;
+  }
+
+  .checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #4a5568;
+
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: #667eea;
+    }
+  }
+
+  .forgot-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #764ba2;
+    }
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+
+      &::before {
+        left: 100%;
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  .show-password-icon {
+    font-size: 1.2em;
+    color: #a0aec0;
+    transition: color 0.2s;
+    right: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    z-index: 3;
+    cursor: pointer;
+    
+    &:hover, &:focus {
+      color: #667eea;
+    }
+  }
+
+  .google-login-container {
+    margin: 16px 0 0 0;
+  }
+
+  .switch-form-text {
+    margin-top: 18px;
+    text-align: center;
+  }
+
+  .switch-form-btn {
+    background: none;
+    border: none;
+    color: #667eea;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    
+    &:hover {
+      color: #764ba2;
+    }
+  }
+
+  // ============================================
+  // RESPONSIVE - HORIZONTAL LAYOUT ON SMALLER SCREENS
+  // ============================================
+
+  // Tablet - Keep 2 columns but start reducing
+  @media (max-width: 991px) {
+    .container-sm.wider {
+      max-width: 650px;
+    }
+
+    .register-form {
+      .form-row {
+        gap: 20px;
+      }
+    }
+  }
+
+  // Medium screens - Switch to horizontal layout
+  @media (max-width: 850px) {
+    .container-sm.wider {
+      max-width: 700px;
+    }
+
+    .form-card {
+      padding: 36px 28px;
+    }
+
+    .register-form {
+      // ✅ SWITCH TO HORIZONTAL LAYOUT
+      .form-group {
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 16px !important;
+      }
+
+      .form-label {
+        text-align: right;
+        margin-bottom: 0;
+        font-size: 12px;
+        padding-right: 6px;
+      }
+
+      .input-wrapper {
+        width: 100%;
+      }
+
+      .form-input {
+        padding: 9px 12px 9px 38px;
+        font-size: 13px;
+        border-radius: 10px;
+      }
+
+      .input-icon {
+        left: 12px;
+        font-size: 14px;
+      }
+
+      .form-title {
+        font-size: 22px;
+      }
+
+      .form-subtitle {
+        font-size: 12px;
+        margin-bottom: 20px;
+      }
+
+      .form-options {
+        font-size: 11px;
+        margin-bottom: 16px;
+      }
+
+      .submit-btn {
+        padding: 11px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  // Smaller tablets - Stack to single column
+  @media (max-width: 768px) {
+    .container-sm.wider {
+      max-width: 550px;
+    }
+
+    .register-form {
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      // Keep horizontal layout but adjust sizing
+      .form-group {
+        grid-template-columns: 100px 1fr;
+        gap: 8px;
+      }
+
+      .form-label {
+        font-size: 11px;
+      }
+    }
+  }
+
+  // Mobile - Back to vertical layout
+  @media (max-width: 576px) {
+    padding: 20px 15px;
+
+    .container-sm.wider {
+      max-width: 100%;
+    }
+
+    .form-card {
+      padding: 30px 25px;
+    }
+    
+    .toggle-btn {
+      padding: 10px 30px;
+      font-size: 14px;
+    }
+    
+    .form-title {
+      font-size: 24px;
+    }
+    
+    .circle-1, .circle-2 {
+      opacity: 0.5;
+    }
+
+    .register-form {
+      // ✅ BACK TO VERTICAL LAYOUT ON MOBILE
+      .form-group {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        margin-bottom: 20px !important;
+      }
+
+      .form-label {
+        text-align: left;
+        margin-bottom: 6px;
+        font-size: 13px;
+        padding-right: 0;
+      }
+
+      .form-input {
+        padding: 11px 14px 11px 42px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// Keyframe Animations
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-30px) rotate(180deg);
+    opacity: 0.8;
+  }
+}
+
+@keyframes bubble {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-50px) scale(1.1);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

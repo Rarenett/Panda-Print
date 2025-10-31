@@ -1,0 +1,349 @@
+// ============================================
+// HOT DEALS SECTION - EXACTLY MATCHING BEST SELLS
+// ============================================
+
+.hot-deals {
+  padding-top: 80px;
+  padding-bottom: 20px;
+}
+
+// Hot Deals Container - SAME AS BEST SELLS
+.hot-deals-container {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+}
+
+// Featured Product Card - EXACT SAME DIMENSIONS AS BEST SELLS
+.hot-deals-featured {
+  flex: 0 0 320px;
+  width: 320px;
+  
+  @media (max-width: 1000px) {
+    flex: 0 0 280px;
+    width: 280px;
+  }
+  
+  @media (max-width: 950px) {
+    flex: 0 0 260px;
+    width: 260px;
+  }
+  
+  @media (max-width: 900px) {
+    flex: 0 0 240px;
+    width: 240px;
+  }
+  
+  @media (max-width: 850px) {
+    flex: 0 0 220px;
+    width: 220px;
+  }
+  
+  @media (max-width: 800px) {
+    flex: 0 0 200px;
+    width: 200px;
+  }
+  
+  @media (max-width: 770px) {
+    display: none;
+  }
+}
+
+.hot-deals-card {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  border-radius: 20px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.1;
+    z-index: 0;
+  }
+
+  &__thumb {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+    }
+    
+    @media (max-width: 1000px) {
+      width: 160px;
+      height: 160px;
+    }
+    
+    @media (max-width: 900px) {
+      width: 140px;
+      height: 140px;
+    }
+    
+    @media (max-width: 800px) {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__title {
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 24px;
+    line-height: 1.3;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    
+    @media (max-width: 1000px) {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    
+    @media (max-width: 900px) {
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    
+    @media (max-width: 800px) {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    color: #43e97b;
+    padding: 12px 28px;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.9);
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      color: #43e97b;
+    }
+
+    i {
+      font-size: 18px;
+    }
+    
+    @media (max-width: 1000px) {
+      padding: 10px 24px;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+    
+    @media (max-width: 900px) {
+      padding: 8px 20px;
+      font-size: 13px;
+      margin-top: 16px;
+    }
+    
+    @media (max-width: 800px) {
+      padding: 6px 16px;
+      font-size: 12px;
+      margin-top: 12px;
+    }
+  }
+  
+  @media (max-width: 1000px) {
+    min-height: 450px;
+    padding: 20px;
+  }
+  
+  @media (max-width: 950px) {
+    min-height: 430px;
+    padding: 18px;
+  }
+  
+  @media (max-width: 900px) {
+    min-height: 410px;
+    padding: 16px;
+  }
+  
+  @media (max-width: 850px) {
+    min-height: 390px;
+  }
+  
+  @media (max-width: 800px) {
+    min-height: 370px;
+    padding: 14px;
+  }
+}
+
+// Countdown - WHITE BACKGROUND like Best Sells
+.hot-deals-countdown {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 16px 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+
+  .countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 50px;
+  }
+
+  .countdown-value {
+    font-size: 24px;
+    font-weight: 800;
+    color: #43e97b;
+    line-height: 1;
+    transition: all 0.3s ease;
+  }
+
+  .countdown-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #43e97b;
+    text-transform: uppercase;
+    margin-top: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  @media (max-width: 1000px) {
+    padding: 14px 10px;
+    margin-bottom: 20px;
+    
+    .countdown-value {
+      font-size: 22px;
+    }
+    
+    .countdown-label {
+      font-size: 10px;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    padding: 12px 8px;
+    gap: 10px;
+    margin-bottom: 16px;
+    
+    .countdown-value {
+      font-size: 20px;
+    }
+    
+    .countdown-label {
+      font-size: 9px;
+    }
+    
+    .countdown-item {
+      min-width: 45px;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    padding: 10px 6px;
+    gap: 8px;
+    margin-bottom: 12px;
+    
+    .countdown-value {
+      font-size: 18px;
+    }
+    
+    .countdown-label {
+      font-size: 8px;
+    }
+    
+    .countdown-item {
+      min-width: 40px;
+    }
+  }
+}
+
+// Products Slider Section
+.hot-deals-products {
+  flex: 1;
+  min-width: 0;
+}
+
+// Mobile
+@media (max-width: 575px) {
+  .hot-deals-featured {
+    max-width: 100%;
+  }
+
+  .hot-deals-card {
+    padding: 20px;
+    min-height: 380px;
+
+    &__thumb {
+      width: 150px;
+      height: 150px;
+    }
+
+    &__title {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    &__btn {
+      padding: 10px 24px;
+      font-size: 14px;
+    }
+  }
+
+  .hot-deals-countdown {
+    gap: 8px;
+    padding: 12px 8px;
+
+    .countdown-value {
+      font-size: 20px;
+    }
+
+    .countdown-label {
+      font-size: 10px;
+    }
+  }
+}
+
+.hot-deal-responsive {
+  @media (max-width: 770px) {
+    display: none;
+  }
+}

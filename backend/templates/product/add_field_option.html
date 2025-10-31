@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section id="main-content">
+    <section class="wrapper main-wrapper">
+
+        <!-- Page Title + Top Buttons -->
+        <div class="col-xl-12">
+            <div class="page-title">
+                <div class="float-left"></div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <!-- Field Option Form Section -->
+        <div class="col-xl-12">
+            <section class="box shadow-sm rounded-3 border-0 bg-white">
+                <!-- Top Right Buttons -->
+                <div class="d-flex align-items-center no-print float-right" style="gap: 8px;">
+                    <a href="{% url 'admin_dashboard' %}" 
+                       class="btn btn-light border shadow-sm"
+                       data-bs-toggle="tooltip" data-bs-placement="bottom" title="Home">
+                        <i class="fa-solid fa-house text-primary" style="font-size: 14px;"></i>
+                    </a>
+
+                    <a href="{% url 'field_option_list' %}" 
+                       class="btn btn-light border shadow-sm"
+                       data-bs-toggle="tooltip" data-bs-placement="bottom" title="Back to Field Option List">
+                        <i class="fa-solid fa-arrow-left text-secondary" style="font-size: 14px;"></i>
+                    </a>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!-- Center Logo -->
+                <div class="text-center">
+                    <h4 class="fw-bold text-dark mb-0" style="letter-spacing: 1px;">Panda Print</h4>
+                </div>
+
+                <!-- Header -->
+                <header class="panel_header border-bottom mb-3 align-items-center justify-content-between px-4 bg-light rounded-top">
+                    <div class="align-items-left">
+                        <h2 class="title fw-semibold text-secondary mb-0" style="text-transform: capitalize; font-weight: bolder;">
+                            {% if form.instance.pk %}
+                                Edit Field Option
+                            {% else %}
+                                Add Field Option
+                            {% endif %}
+                        </h2>
+                    </div>
+                </header>
+
+                <!-- Form Body -->
+                <div class="content-body p-4 bg-white border border-light rounded-bottom">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-8 col-lg-10 col-md-12">
+                            <form method="post" enctype="multipart/form-data" class="w-100">
+                                {% csrf_token %}
+
+                                <div class="card border-0 shadow-sm mb-4">
+                                    <div class="card-body p-4">
+
+                                        <!-- Customization Field -->
+                                        <div class="form-group mb-3">
+                                            <label class="form-label fw-semibold">{{ form.field.label }}</label>
+                                            {{ form.field }}
+                                            <small class="form-text text-muted">{{ form.field.help_text }}</small>
+                                            {% if form.field.errors %}
+                                                <div class="text-danger small mt-1">{{ form.field.errors }}</div>
+                                            {% endif %}
+                                        </div>
+
+                                        <!-- Option Value -->
+                                        <div class="form-group mb-3">
+                                            <label class="form-label fw-semibold">{{ form.value.label }}</label>
+                                            {{ form.value }}
+                                            <small class="form-text text-muted">{{ form.value.help_text }}</small>
+                                            {% if form.value.errors %}
+                                                <div class="text-danger small mt-1">{{ form.value.errors }}</div>
+                                            {% endif %}
+                                        </div>
+
+                                        <!-- Image Upload -->
+                                        <div class="form-group mb-3">
+                                            <label class="form-label fw-semibold">{{ form.image.label }}</label>
+                                            {{ form.image }}
+                                            <small class="form-text text-muted">{{ form.image.help_text }}</small>
+                                            {% if option and option.image %}
+                                                <div class="mt-2">
+                                                    <img src="{{ option.image.url }}" alt="{{ option.value }}" 
+                                                         style="width: 100px; height: 100px; object-fit: cover;">
+                                                    <p class="text-muted small">Current image</p>
+                                                </div>
+                                            {% endif %}
+                                            {% if form.image.errors %}
+                                                <div class="text-danger small mt-1">{{ form.image.errors }}</div>
+                                            {% endif %}
+                                        </div>
+
+                                        <!-- Price Modifiers -->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group mb-3">
+                                                    <label class="form-label fw-semibold">{{ form.price_modifier_flat.label }}</label>
+                                                    {{ form.price_modifier_flat }}
+                                                    <small class="form-text text-muted">{{ form.price_modifier_flat.help_text }}</small>
+                                                    {% if form.price_modifier_flat.errors %}
+                                                        <div class="text-danger small mt-1">{{ form.price_modifier_flat.errors }}</div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group mb-3">
+                                                    <label class="form-label fw-semibold">{{ form.price_modifier_percent.label }}</label>
+                                                    {{ form.price_modifier_percent }}
+                                                    <small class="form-text text-muted">{{ form.price_modifier_percent.help_text }}</small>
+                                                    {% if form.price_modifier_percent.errors %}
+                                                        <div class="text-danger small mt-1">{{ form.price_modifier_percent.errors }}</div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Technical Data -->
+                                        <div class="form-group mb-3">
+                                            <label class="form-label fw-semibold">{{ form.option_data.label }}</label>
+                                            {{ form.option_data }}
+                                            <small class="form-text text-muted">
+                                                {{ form.option_data.help_text }}<br>
+                                                Example: {"radius_in": 0.25, "color": "red"}
+                                            </small>
+                                            {% if form.option_data.errors %}
+                                                <div class="text-danger small mt-1">{{ form.option_data.errors }}</div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Action Buttons -->
+                                <div class="d-flex gap-2 justify-content-start">
+                                    <button type="submit" class="btn px-4" style="background-color: #17a2b8; color: white;">
+                                        <i class="fa-solid fa-save me-2"></i>
+                                        {% if form.instance.pk %}Update{% else %}Save{% endif %}
+                                    </button>
+                                    <a href="{% url 'field_option_list' %}" class="btn btn-outline-secondary px-4">
+                                        <i class="fa-solid fa-times me-2"></i>Cancel
+                                    </a>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </section>
+</section>
+
+<!-- ✅ Matching Styles -->
+<style>
+    .box {
+        border: 1px solid #e1e1e1;
+        background-color: #fff;
+    }
+    .panel_header {
+        background-color: #f9f9f9;
+        border-radius: 8px 8px 0 0;
+    }
+    .btn-light:hover {
+        background-color: #f0f0f0;
+        transform: translateY(-1px);
+        transition: all 0.2s ease;
+    }
+    .btn[style*="background-color: #17a2b8"]:hover {
+        background-color: #138496 !important;
+    }
+    .form-control, .form-select {
+        border: 1px solid #ced4da;
+        border-radius: 6px;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.95rem;
+    }
+    .form-control:focus, .form-select:focus {
+        border-color: #17a2b8;
+        box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.25);
+    }
+    .form-label {
+        color: #495057;
+        margin-bottom: 0.5rem;
+    }
+    .card {
+        border-radius: 8px;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    });
+</script>
+
+{% include 'page_header.html' %}
+
+{% endblock %}

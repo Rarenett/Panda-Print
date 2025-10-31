@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+{% load static %}
+<html class=" ">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>Panda Print</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <link rel="shortcut icon" href="{% static 'backend/assets/images/favicon.png' %}" type="image/x-icon" />
+    <link href="{% static 'backend/assets/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'backend/assets/fonts/font-awesome/css/font-awesome.css' %}" rel="stylesheet" type="text/css"/>
+
+    <!-- 🌈 MODERN BLUE THEME STYLES -->
+    <style>
+        /* Background gradient with subtle animation */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body.login_page {
+            background: linear-gradient(135deg, #1e3c72, #2a5298, #00c6ff);
+            background-size: 300% 300%;
+            animation: gradientShift 12s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .login-wrapper {
+            width: 100%;
+            max-width: 420px;
+            padding: 30px;
+        }
+
+        .login {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 35px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            color: #fff;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .login:hover {
+            transform: translateY(-5px);
+        }
+
+        .login h1 a {
+            color: #fff;
+            font-weight: 600;
+            font-size: 26px;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .field-set input {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 8px;
+            padding: 12px 15px;
+            color: #fff;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        .field-set input:focus {
+            background: rgba(255, 255, 255, 0.35);
+            outline: none;
+        }
+
+        .btn-orange {
+            background: linear-gradient(45deg, #00c6ff, #377cc5);
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-orange:hover {
+            background: linear-gradient(45deg, #377cc5, #00c6ff);
+            transform: scale(1.03);
+        }
+
+        #nav a {
+            color: #e3f2fd;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        #nav a:hover {
+            text-decoration: underline;
+        }
+
+        .fa-eye {
+            color: #fff;
+            opacity: 0.8;
+        }
+
+        .fa-eye:hover {
+            opacity: 1;
+        }
+
+        ::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+
+<body class="login_page">
+    <div class="login-wrapper">
+        <div id="login" class="login">
+            <h1><a href="#" title="Login Page" tabindex="-1">Panda Admin</a></h1>
+
+            <form id="loginform" action="" method="post">
+                {% csrf_token %}
+                <p>
+                    <label for="user_login">Email</label>
+                    <div class="field-set">
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                            <div class="text-danger small mt-1">
+                                {% for error in form.email.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>                    
+                </p>
+                <p>
+                    <label for="user_pass">Password</label>
+                    <div class="field-set position-relative">
+                        {{ form.password }}
+                        <i class="fa fa-eye toggle-password position-absolute" style="right:15px; top:12px; cursor:pointer;"></i>
+                        {% if form.password.errors %}
+                            <div class="text-danger small mt-1">
+                                {% for error in form.password.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>               
+                </p>
+                <p class="forgetmenot text-start">
+                    <label class="icheck-label form-label" for="rememberme">
+                        <input name="rememberme" type="checkbox" id="rememberme" value="forever" checked> Remember me
+                    </label>
+                </p>
+                <p class="submit">
+                    <input type="submit" class="btn btn-orange btn-block" value="Sign In" />
+                </p>
+            </form>
+
+            <p id="nav" class="mt-3">
+                <a class="float-left" href="#" title="Password Lost and Found">Forgot password?</a>
+                <a class="float-right" href="ui-register.html" title="Sign Up">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="{% static 'backend/assets/js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'backend/assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'backend/assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</body>
+</html>
